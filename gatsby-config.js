@@ -5,5 +5,14 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `code-snippets`,
+        path: `${__dirname}/src/code-snippets`,
+      },
+    },
+    `gatsby-transformer-remark`,
+  ],
 }
