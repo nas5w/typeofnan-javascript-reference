@@ -1,7 +1,7 @@
-const path = require(`path`)
+const path = require(`path`);
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
-  const codeSnippetTemplate = path.resolve(`./src/templates/code-snippets.js`)
+  const { createPage } = actions;
+  const codeSnippetTemplate = path.resolve(`./src/templates/code-snippets.js`);
   const result = await graphql(`
     {
       allMarkdownRemark(
@@ -17,18 +17,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
     }
-  `)
+  `);
 
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
   }
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    console.log(node)
+    console.log(node);
     createPage({
       path: node.frontmatter.path,
       component: codeSnippetTemplate,
-      context: {},
-    })
-  })
-}
+      context: {}
+    });
+  });
+};

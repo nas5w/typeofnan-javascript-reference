@@ -9,8 +9,7 @@ export default function Template({ data }) {
   return (
     <div className="snippet-container">
       <div className="snippet">
-        <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.path}</h2>
+        <h1>How {frontmatter.title} works</h1>
         <SnippetAnimator snippets={snippets} />
       </div>
     </div>

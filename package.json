@@ -14,7 +14,6 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@babel/parser": "^7.8.4",
     "codemirror": "^5.51.0",
     "gatsby": "^2.19.7",
     "gatsby-source-filesystem": "^2.1.47",
