@@ -1,19 +1,17 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { parser } from "../utils/parser";
+import { SnippetAnimator } from "../components/SnippetAnimator";
 export default function Template({ data }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  console.log(parser(html));
+  const snippets = parser(html);
   return (
     <div className="snippet-container">
       <div className="snippet">
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.path}</h2>
-        <div
-          className="snippet-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <SnippetAnimator snippets={snippets} />
       </div>
     </div>
   );

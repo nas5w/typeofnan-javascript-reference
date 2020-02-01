@@ -14,10 +14,14 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@babel/parser": "^7.8.4",
+    "codemirror": "^5.51.0",
     "gatsby": "^2.19.7",
     "gatsby-source-filesystem": "^2.1.47",
     "gatsby-transformer-remark": "^2.6.49",
+    "js-beautify": "^1.10.3",
     "react": "^16.12.0",
+    "react-codemirror2": "^6.0.0",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
