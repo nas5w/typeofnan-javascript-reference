@@ -6,9 +6,17 @@ export default function Template({ data }) {
   const links = data.allMarkdownRemark.edges.map(edge => {
     return {
       name: edge.node.frontmatter.linkname,
-      path: edge.node.frontmatter.path
+      path: edge.node.frontmatter.path,
+      category: edge.node.frontmatter.category
     };
   });
+  const multilevelLinks = Object.entries(
+    links.reduce((acc, link) => {
+      if (!acc[link.category]) acc[link.category] = [];
+      acc[link.category].push(link);
+      return acc;
+    }, {})
+  );
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
   const snippets = parser(html);
@@ -16,10 +24,19 @@ export default function Template({ data }) {
     <>
       <div>
         <ul>
-          {links.map(link => {
+          {multilevelLinks.map(links => {
             return (
-              <li key={link.path}>
-                <Link to={link.path}>{link.name}</Link>
+              <li>
+                {links[0]}
+                <ul>
+                  {links[1].map(link => {
+                    return (
+                      <li key={link.path}>
+                        <Link to={link.path}>{link.name}</Link>
+                      </li>
+                    );
+                  })}
+                </ul>
               </li>
             );
           })}
@@ -49,6 +66,7 @@ export const pageQuery = graphql`
           frontmatter {
             linkname
             path
+            category
           }
         }
       }

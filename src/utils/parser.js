@@ -12,7 +12,6 @@ export const parser = html => {
       end: parseCode(code, "end"),
       after: parseCode(code, "after")
     };
-    console.log(dataElements.content);
     return { narrative, ...dataElements };
   });
 };
