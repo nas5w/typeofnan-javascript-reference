@@ -33,6 +33,7 @@ export const SnippetAnimator = ({ snippets }) => {
   }, [contentDisplay, currentIndex, content, after, typing, snippets]);
 
   const code = (start || "") + contentDisplay + (end || "");
+
   return (
     <>
       <div className="container">

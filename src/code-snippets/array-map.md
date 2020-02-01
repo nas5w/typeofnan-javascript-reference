@@ -1,5 +1,6 @@
 ---
-title: "Array Map"
+title: "the Array.map method"
+linkname: "Array.map()"
 path: "/array-map"
 order: 1
 ---

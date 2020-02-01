@@ -24,7 +24,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    console.log(node);
     createPage({
       path: node.frontmatter.path,
       component: codeSnippetTemplate,
