@@ -3,7 +3,6 @@ title: "the Array.map method"
 linkname: "Array.map()"
 path: "/array-map"
 category: "Array"
-order: 1
 ---
 
 <!-- prettier-ignore-start -->

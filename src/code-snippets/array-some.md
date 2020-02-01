@@ -3,7 +3,6 @@ title: "the Array.some method"
 linkname: "Array.some()"
 path: "/array-some"
 category: "Array"
-order: 1
 ---
 
 <!-- prettier-ignore-start -->

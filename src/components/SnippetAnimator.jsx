@@ -22,7 +22,7 @@ export const SnippetAnimator = ({ snippets }) => {
       setTyping(true);
       setTimeout(() => {
         setContentDisplay(content.substring(0, contentDisplay.length + 1));
-      }, Math.random() * 75 + 100);
+      }, Math.random() * 40 + 70);
     } else {
       if (typing) {
         setContentDisplay(contentDisplay => contentDisplay + (after || ""));
