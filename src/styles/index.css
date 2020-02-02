@@ -1,14 +1,30 @@
+body {
+  margin: 0;
+}
+
 .layout,
 .layout-body {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .layout-nav {
   order: -1;
+  background-color: #efefef;
 }
 
-@media (min-width: 768px) {
+header {
+  background-color: #03396c;
+  color: #fff;
+}
+
+.CodeMirror {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (min-width: 1000px) {
   .layout-body {
     flex-direction: row;
     flex: 1;
@@ -20,5 +36,12 @@
   .layout-nav {
     /* 12em is the width of the columns */
     flex: 0 0 12em;
+  }
+  .CodeMirror {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .layout-code {
+    background-color: #263238;
   }
 }
