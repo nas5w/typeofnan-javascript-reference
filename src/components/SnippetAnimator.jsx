@@ -6,7 +6,7 @@ import { js as jBeautify } from "js-beautify";
 import "codemirror/mode/javascript/javascript";
 import "./SnippetAnimator.css";
 
-export const SnippetAnimator = ({ snippets }) => {
+export const SnippetAnimator = ({ snippets, title }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [contentDisplay, setContentDisplay] = useState("");
   const [typing, setTyping] = useState(false);
@@ -37,6 +37,7 @@ export const SnippetAnimator = ({ snippets }) => {
   return (
     <>
       <div className="layout-content">
+        <h2>{title}</h2>
         <ul>
           {snippets
             .filter((_, i) => i <= currentInstruction)

@@ -12,10 +12,13 @@ export default function Template({ data }) {
   return (
     <div className="layout">
       <header>
-        <h1>How {frontmatter.title} works</h1>
+        <h1>Some page title</h1>
       </header>
       <div className="layout-body">
-        <SnippetAnimator snippets={snippets} />
+        <SnippetAnimator
+          snippets={snippets}
+          title={`How ${frontmatter.title} works`}
+        />
         <div className="layout-nav">
           <LinkList data={data} />
         </div>
