@@ -17,7 +17,7 @@ export default function Template({ data }) {
   return (
     <div className="layout">
       <header>
-        <h1>Some page title</h1>
+        <h1>TypeOfNaN Tutorials</h1>
       </header>
       <div className="layout-body">
         <SnippetAnimator
