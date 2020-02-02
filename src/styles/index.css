@@ -1,0 +1,24 @@
+.layout,
+.layout-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-nav {
+  order: -1;
+}
+
+@media (min-width: 768px) {
+  .layout-body {
+    flex-direction: row;
+    flex: 1;
+  }
+  .layout-content,
+  .layout-code {
+    flex: 1;
+  }
+  .layout-nav {
+    /* 12em is the width of the columns */
+    flex: 0 0 12em;
+  }
+}

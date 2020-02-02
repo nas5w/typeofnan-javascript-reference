@@ -36,42 +36,40 @@ export const SnippetAnimator = ({ snippets }) => {
 
   return (
     <>
-      <div className="container">
-        <div className="left-half">
-          <ul>
-            {snippets
-              .filter((_, i) => i <= currentInstruction)
-              .map((el, i) => (
-                <li key={el.narrative}>
-                  <span dangerouslySetInnerHTML={{ __html: el.narrative }} />{" "}
-                  {i === currentInstruction &&
-                    !typing &&
-                    snippets[currentIndex + 1] && (
-                      <button
-                        onClick={() => {
-                          setContentDisplay("");
-                          setCurrentIndex(currentIndex + 1);
-                        }}
-                      >
-                        Show me &raquo;
-                      </button>
-                    )}
-                </li>
-              ))}
-          </ul>
-        </div>
-        <div className="right-half">
-          <CodeMirror
-            value={typing ? code : jBeautify(code, { indent_size: 2 })}
-            options={{
-              mode: "javascript",
-              lineNumbers: true,
-              theme: "material"
-            }}
-            onBeforeChange={() => null}
-            onChange={() => null}
-          />
-        </div>
+      <div className="layout-content">
+        <ul>
+          {snippets
+            .filter((_, i) => i <= currentInstruction)
+            .map((el, i) => (
+              <li key={el.narrative}>
+                <span dangerouslySetInnerHTML={{ __html: el.narrative }} />{" "}
+                {i === currentInstruction &&
+                  !typing &&
+                  snippets[currentIndex + 1] && (
+                    <button
+                      onClick={() => {
+                        setContentDisplay("");
+                        setCurrentIndex(currentIndex + 1);
+                      }}
+                    >
+                      Show me &raquo;
+                    </button>
+                  )}
+              </li>
+            ))}
+        </ul>
+      </div>
+      <div className="layout-code">
+        <CodeMirror
+          value={typing ? code : jBeautify(code, { indent_size: 2 })}
+          options={{
+            mode: "javascript",
+            lineNumbers: true,
+            theme: "material"
+          }}
+          onBeforeChange={() => null}
+          onChange={() => null}
+        />
       </div>
     </>
   );

@@ -3,20 +3,24 @@ import { graphql } from "gatsby";
 import { parser } from "../utils/parser";
 import { SnippetAnimator } from "../components/SnippetAnimator";
 import { LinkList } from "../components/LinkList";
+import "../styles/index.css";
+
 export default function Template({ data }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
   const snippets = parser(html);
   return (
-    <>
-      <LinkList data={data} />
-      <div className="snippet-container">
-        <div className="snippet">
-          <h1>How {frontmatter.title} works</h1>
-          <SnippetAnimator snippets={snippets} />
+    <div className="layout">
+      <header>
+        <h1>How {frontmatter.title} works</h1>
+      </header>
+      <div className="layout-body">
+        <SnippetAnimator snippets={snippets} />
+        <div className="layout-nav">
+          <LinkList data={data} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 export const pageQuery = graphql`

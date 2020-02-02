@@ -4,10 +4,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const codeSnippetTemplate = path.resolve(`./src/templates/code-snippets.js`);
   const result = await graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___order] }
-        limit: 1000
-      ) {
+      allMarkdownRemark(limit: 1000) {
         edges {
           node {
             frontmatter {

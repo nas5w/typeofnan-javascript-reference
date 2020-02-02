@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { parser } from "../utils/parser";
 
 export function LinkList({ data }) {
   const links = data.allMarkdownRemark.edges.map(edge => {
@@ -17,30 +16,25 @@ export function LinkList({ data }) {
       return acc;
     }, {})
   );
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
-  const snippets = parser(html);
   return (
-    <div>
-      <ul>
-        {multilevelLinks.map(links => {
-          return (
-            <li>
-              {links[0]}
-              <ul>
-                {links[1].map(link => {
-                  return (
-                    <li key={link.path}>
-                      <Link to={link.path}>{link.name}</Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <ul>
+      {multilevelLinks.map(links => {
+        return (
+          <li key={links[0]}>
+            {links[0]}
+            <ul>
+              {links[1].map(link => {
+                return (
+                  <li key={link.path}>
+                    <Link to={link.path}>{link.name}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
