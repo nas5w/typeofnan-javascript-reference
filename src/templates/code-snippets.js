@@ -4,6 +4,7 @@ import { parser } from "../utils/parser";
 import { SnippetAnimator } from "../components/SnippetAnimator";
 import { LinkList } from "../components/LinkList";
 import "../styles/index.css";
+import Helmet from "react-helmet";
 
 export default function Template({ data }) {
   const { markdownRemark } = data;
@@ -19,6 +20,10 @@ export default function Template({ data }) {
       <header>
         <h1>TypeOfNaN Tutorials</h1>
       </header>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>How {frontmatter.title} works | TypeOfNaN Tutorials</title>
+      </Helmet>
       <div className="layout-body">
         <SnippetAnimator
           snippets={snippets}

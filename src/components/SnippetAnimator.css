@@ -19,7 +19,8 @@ button {
   font-size: 16px;
   cursor: pointer;
   color: #3b4252;
-  margin-top: 20px;
+  margin-left: 20px;
+  maegin-top: 10px;
 }
 
 button:hover {

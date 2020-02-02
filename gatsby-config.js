@@ -20,6 +20,7 @@ module.exports = {
         path: `${__dirname}/src/code-snippets`
       }
     },
-    `gatsby-transformer-remark`
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-react-helmet`
   ]
 };

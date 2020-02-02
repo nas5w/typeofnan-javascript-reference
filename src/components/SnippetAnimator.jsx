@@ -47,24 +47,21 @@ export const SnippetAnimator = ({ snippets, title, nextPage }) => {
             .map((el, i) => (
               <li key={el.narrative}>
                 <span dangerouslySetInnerHTML={{ __html: el.narrative }} />{" "}
-                {i === currentInstruction &&
-                  !typing &&
-                  snippets[currentIndex + 1] && (
-                    <>
-                      <br />
-                      <button
-                        onClick={() => {
-                          setContentDisplay("");
-                          setCurrentIndex(currentIndex + 1);
-                        }}
-                      >
-                        Show me &raquo;
-                      </button>
-                    </>
-                  )}
               </li>
             ))}
         </ol>
+        <button
+          onClick={() => {
+            setContentDisplay("");
+            setCurrentIndex(currentIndex + 1);
+          }}
+          style={{
+            visibility:
+              !typing && snippets[currentIndex + 1] ? "visible" : "hidden"
+          }}
+        >
+          Show me &raquo;
+        </button>
         {nextPage && !snippets[currentIndex + 1] && (
           <>
             <hr />
