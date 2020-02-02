@@ -1,0 +1,8 @@
+.ui.labeled.icon.menu,
+.ui.icon.menu .item {
+  text-align: left !important;
+}
+
+.ui.icon.menu .centered {
+  text-align: center !important;
+}

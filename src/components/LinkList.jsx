@@ -1,8 +1,11 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
-import { parser } from "../utils/parser";
+import React, { useState } from "react";
+import { Button, Menu, Sidebar } from "semantic-ui-react";
+import { Link } from "gatsby";
+import "./LinkList.css";
 
-export function LinkList({ data }) {
+export function LinkList({ data, menuOpen, closeMenu, currentPath }) {
+  const [open, setOpen] = useState({});
+
   const links = data.allMarkdownRemark.edges.map(edge => {
     return {
       name: edge.node.frontmatter.linkname,
@@ -17,45 +20,58 @@ export function LinkList({ data }) {
       return acc;
     }, {})
   );
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
-  const snippets = parser(html);
   return (
-    <div>
-      <ul>
-        {multilevelLinks.map(links => {
-          return (
-            <li>
-              {links[0]}
-              <ul>
-                {links[1].map(link => {
-                  return (
-                    <li key={link.path}>
-                      <Link to={link.path}>{link.name}</Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <Sidebar
+      as={Menu}
+      animation="overlay"
+      icon="labeled"
+      inverted
+      vertical
+      visible={menuOpen}
+      width="thin"
+    >
+      <Menu.Item className="centered">
+        <Button secondary onClick={closeMenu}>
+          Close [X]
+        </Button>
+      </Menu.Item>
+      {multilevelLinks.map(links => {
+        return (
+          <>
+            <Menu.Item
+              as="a"
+              onClick={() => {
+                setOpen(open => ({ ...open, [links[0]]: !open[links[0]] }));
+              }}
+            >
+              {links[0]}{" "}
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: open[links[0]] ? "&#11167" : "&#11166"
+                }}
+              />
+            </Menu.Item>
+            {open[links[0]] &&
+              links[1].map(link => {
+                return (
+                  <Menu.Item
+                    as={currentPath === link.path ? "span" : Link}
+                    to={link.path}
+                  >
+                    <span
+                      style={{
+                        fontWeight:
+                          currentPath === link.path ? "bold" : "normal"
+                      }}
+                    >
+                      {link.name}
+                    </span>
+                  </Menu.Item>
+                );
+              })}
+          </>
+        );
+      })}
+    </Sidebar>
   );
 }
-
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___linkname], order: ASC }) {
-      edges {
-        node {
-          frontmatter {
-            linkname
-            path
-            category
-          }
-        }
-      }
-    }
-  }
-`;

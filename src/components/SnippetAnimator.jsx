@@ -4,6 +4,7 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 import { js as jBeautify } from "js-beautify";
 import "codemirror/mode/javascript/javascript";
+import { Button } from "semantic-ui-react";
 import "./SnippetAnimator.css";
 
 export const SnippetAnimator = ({ snippets }) => {
@@ -43,22 +44,23 @@ export const SnippetAnimator = ({ snippets }) => {
               .filter((_, i) => i <= currentInstruction)
               .map((el, i) => (
                 <li key={el.narrative}>
-                  <span dangerouslySetInnerHTML={{ __html: el.narrative }} />{" "}
-                  {i === currentInstruction &&
-                    !typing &&
-                    snippets[currentIndex + 1] && (
-                      <button
-                        onClick={() => {
-                          setContentDisplay("");
-                          setCurrentIndex(currentIndex + 1);
-                        }}
-                      >
-                        Show me &raquo;
-                      </button>
-                    )}
+                  <span dangerouslySetInnerHTML={{ __html: el.narrative }} />
                 </li>
               ))}
           </ul>
+          <p>
+            {(typing || snippets[currentIndex + 1]) && (
+              <Button
+                loading={typing}
+                onClick={() => {
+                  setContentDisplay("");
+                  setCurrentIndex(currentIndex + 1);
+                }}
+              >
+                Show me &raquo;
+              </Button>
+            )}
+          </p>
         </div>
         <div className="right-half">
           <CodeMirror
