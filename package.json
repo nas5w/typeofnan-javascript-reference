@@ -16,6 +16,7 @@
   "dependencies": {
     "codemirror": "^5.51.0",
     "gatsby": "^2.19.7",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-source-filesystem": "^2.1.47",
     "gatsby-transformer-remark": "^2.6.49",
     "js-beautify": "^1.10.3",
