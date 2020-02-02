@@ -12,7 +12,13 @@ if (typeof window !== "undefined" && typeof window.navigator !== "undefined") {
   modeLoaded = true;
 }
 
-export const SnippetAnimator = ({ snippets, title, nextPage }) => {
+export const SnippetAnimator = ({
+  snippets,
+  title,
+  nextPage,
+  description,
+  doclink
+}) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [contentDisplay, setContentDisplay] = useState("");
   const [typing, setTyping] = useState(false);
@@ -43,7 +49,13 @@ export const SnippetAnimator = ({ snippets, title, nextPage }) => {
   return (
     <>
       <div className="layout-content">
-        <h2>{title}</h2>
+        <h2>How {title} works</h2>
+        <p style={{ margin: "20px 0", fontSize: "18px", color: "#555" }}>
+          {description}
+        </p>
+        <p style={{ margin: "20px 0", fontSize: "18px", color: "#555" }}>
+          Here's a simple example of how we can use {title}:
+        </p>
         <ol>
           {snippets
             .filter((_, i) => i <= currentInstruction)
@@ -65,6 +77,16 @@ export const SnippetAnimator = ({ snippets, title, nextPage }) => {
         >
           Show me &raquo;
         </button>
+        {!snippets[currentIndex + 1] && (
+          <p>
+            This is only an example of the power of {title}. To dive deeper,
+            check out{" "}
+            <a href={doclink} target="_blank" rel="noopener noreferrer">
+              these docs
+            </a>
+            !
+          </p>
+        )}
         {nextPage && !snippets[currentIndex + 1] && (
           <>
             <hr />

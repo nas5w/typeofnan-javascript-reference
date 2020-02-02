@@ -36,8 +36,10 @@ export default function Template({ data }) {
       <div className="layout-body">
         <SnippetAnimator
           snippets={snippets}
-          title={`How ${frontmatter.title} works`}
+          description={frontmatter.description}
+          title={frontmatter.title}
           nextPage={nextPage}
+          doclink={frontmatter.ref}
         />
         <div className={`layout-nav ${showMenu ? "" : "collapsed"}`}>
           <LinkList data={data} />
@@ -53,6 +55,8 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
+        description
+        ref
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___linkname], order: ASC }) {
