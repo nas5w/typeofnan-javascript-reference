@@ -5,8 +5,11 @@ import "codemirror/theme/nord.css";
 import { js as jBeautify } from "js-beautify";
 import "codemirror/mode/javascript/javascript";
 import "./SnippetAnimator.css";
+import { Link } from "gatsby";
 
-export const SnippetAnimator = ({ snippets, title }) => {
+export const SnippetAnimator = ({ snippets, title, nextPage }) => {
+  console.log(nextPage);
+
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [contentDisplay, setContentDisplay] = useState("");
   const [typing, setTyping] = useState(false);
@@ -59,6 +62,14 @@ export const SnippetAnimator = ({ snippets, title }) => {
               </li>
             ))}
         </ol>
+        {nextPage && !snippets[currentIndex + 1] && (
+          <>
+            <h3>Next</h3>
+            <Link to={nextPage.node.frontmatter.path}>
+              {nextPage.node.frontmatter.title} &raquo;
+            </Link>
+          </>
+        )}
       </div>
       <div className="layout-code">
         <CodeMirror

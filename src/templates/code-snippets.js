@@ -8,6 +8,11 @@ import "../styles/index.css";
 export default function Template({ data }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
+  const nextIndex =
+    data.allMarkdownRemark.edges.findIndex(
+      edge => edge.node.frontmatter.title === frontmatter.title
+    ) + 1;
+  const nextPage = data.allMarkdownRemark.edges[nextIndex];
   const snippets = parser(html);
   return (
     <div className="layout">
@@ -18,6 +23,7 @@ export default function Template({ data }) {
         <SnippetAnimator
           snippets={snippets}
           title={`How ${frontmatter.title} works`}
+          nextPage={nextPage}
         />
         <div className="layout-nav">
           <LinkList data={data} />
@@ -39,6 +45,7 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
+            title
             linkname
             path
             category
