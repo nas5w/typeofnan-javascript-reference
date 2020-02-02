@@ -6,3 +6,8 @@
 .ui.icon.menu .centered {
   text-align: center !important;
 }
+
+.ui.segment {
+  min-height: 100vh;
+  margin: 0;
+}

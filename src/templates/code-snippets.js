@@ -4,7 +4,7 @@ import { parser } from "../utils/parser";
 import { SnippetAnimator } from "../components/SnippetAnimator";
 import { LinkList } from "../components/LinkList";
 import "semantic-ui-css/semantic.min.css";
-import { Segment, Sidebar, Button } from "semantic-ui-react";
+import { Segment, Sidebar, Container, Menu } from "semantic-ui-react";
 
 export default function Template({ data }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,19 +24,18 @@ export default function Template({ data }) {
         />
         <Sidebar.Pusher>
           <Segment basic>
-            <div className="snippet-container">
-              <div className="snippet">
-                <Button
-                  onClick={() => {
-                    setMenuOpen(true);
-                  }}
-                >
-                  Menu
-                </Button>
-                <h1>How {frontmatter.title} works</h1>
-                <SnippetAnimator snippets={snippets} />
-              </div>
-            </div>
+            <Menu pointing secondary>
+              <Menu.Item>
+                <h2>How stuff works</h2>
+              </Menu.Item>
+              <Menu.Item name="menu" onClick={() => setMenuOpen(true)}>
+                Menu
+              </Menu.Item>
+            </Menu>
+            <Container fluid>
+              <h1>How {frontmatter.title} works</h1>
+              <SnippetAnimator snippets={snippets} />
+            </Container>
           </Segment>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
