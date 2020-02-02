@@ -1,3 +1,4 @@
-import React from "react"
+import React from "react";
+import { Redirect } from "@reach/router";
 
-export default () => <div>Hello world!</div>
+export default () => <Redirect noThrow to="/array-map" />;

@@ -21,6 +21,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const { createRedirect } = actions;
+
     createPage({
       path: node.frontmatter.path,
       component: codeSnippetTemplate,
