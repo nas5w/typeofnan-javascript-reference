@@ -1,19 +1,24 @@
-.left-half ul li {
-  margin-bottom: 15px;
-}
-
 h2 {
   margin-top: 0;
+}
+
+ol {
+  padding: 0px 20px;
+}
+
+ol li {
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
 button {
   background-color: transparent;
   border: none;
-  border-bottom: 2px dashed #1c4966;
+  border-bottom: 2px dashed #3b4252;
   padding: 0;
   font-size: 18px;
   cursor: pointer;
-  color: #222;
+  color: #3b4252;
 }
 
 button:hover {
@@ -24,7 +29,8 @@ button:hover {
 code {
   padding: 2px 4px;
   color: #eee;
-  background-color: #333;
+  background-color: #3b4252;
   font-weight: bold;
   border-radius: 3px;
+  font-size: 15px;
 }

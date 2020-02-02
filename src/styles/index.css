@@ -11,17 +11,22 @@ body {
 
 .layout-nav {
   order: -1;
-  background-color: #efefef;
+  background-color: #eceff4;
 }
 
 header {
-  background-color: #03396c;
+  background-color: #5e81ac;
   color: #fff;
 }
 
 .CodeMirror {
   font-size: 14px;
   line-height: 20px;
+}
+
+.layout-content,
+.layout-code {
+  padding: 20px;
 }
 
 @media (min-width: 1000px) {
@@ -42,6 +47,6 @@ header {
     line-height: 26px;
   }
   .layout-code {
-    background-color: #263238;
+    background-color: #2e3440;
   }
 }

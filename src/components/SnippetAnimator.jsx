@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
-import "codemirror/theme/material.css";
+import "codemirror/theme/nord.css";
 import { js as jBeautify } from "js-beautify";
 import "codemirror/mode/javascript/javascript";
 import "./SnippetAnimator.css";
@@ -38,7 +38,7 @@ export const SnippetAnimator = ({ snippets, title }) => {
     <>
       <div className="layout-content">
         <h2>{title}</h2>
-        <ul>
+        <ol>
           {snippets
             .filter((_, i) => i <= currentInstruction)
             .map((el, i) => (
@@ -58,7 +58,7 @@ export const SnippetAnimator = ({ snippets, title }) => {
                   )}
               </li>
             ))}
-        </ul>
+        </ol>
       </div>
       <div className="layout-code">
         <CodeMirror
@@ -66,7 +66,8 @@ export const SnippetAnimator = ({ snippets, title }) => {
           options={{
             mode: "javascript",
             lineNumbers: true,
-            theme: "material"
+            theme: "nord",
+            readOnly: "nocursor"
           }}
           onBeforeChange={() => null}
           onChange={() => null}
