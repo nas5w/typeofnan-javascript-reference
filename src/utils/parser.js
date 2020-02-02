@@ -24,6 +24,9 @@ const parseCode = (snippet, section) => {
 };
 
 const html2text = html => {
+  if (typeof window === "undefined" || typeof window.document === "undefined") {
+    return html;
+  }
   const tag = document.createElement("div");
   tag.innerHTML = html;
   return tag.innerText;

@@ -3,13 +3,16 @@ import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/nord.css";
 import { js as jBeautify } from "js-beautify";
-import "codemirror/mode/javascript/javascript";
 import "./SnippetAnimator.css";
 import { Link } from "gatsby";
 
-export const SnippetAnimator = ({ snippets, title, nextPage }) => {
-  console.log(nextPage);
+let modeLoaded = false;
+if (typeof window !== "undefined" && typeof window.navigator !== "undefined") {
+  require("codemirror/mode/javascript/javascript");
+  modeLoaded = true;
+}
 
+export const SnippetAnimator = ({ snippets, title, nextPage }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [contentDisplay, setContentDisplay] = useState("");
   const [typing, setTyping] = useState(false);
@@ -73,17 +76,19 @@ export const SnippetAnimator = ({ snippets, title, nextPage }) => {
         )}
       </div>
       <div className="layout-code">
-        <CodeMirror
-          value={typing ? code : jBeautify(code, { indent_size: 2 })}
-          options={{
-            mode: "javascript",
-            lineNumbers: true,
-            theme: "nord",
-            readOnly: "nocursor"
-          }}
-          onBeforeChange={() => null}
-          onChange={() => null}
-        />
+        {modeLoaded && (
+          <CodeMirror
+            value={typing ? code : jBeautify(code, { indent_size: 2 })}
+            options={{
+              mode: "javascript",
+              lineNumbers: true,
+              theme: "nord",
+              readOnly: "nocursor"
+            }}
+            onBeforeChange={() => null}
+            onChange={() => null}
+          />
+        )}
       </div>
     </>
   );
