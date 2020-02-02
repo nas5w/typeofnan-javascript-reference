@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import { Button, Menu, Sidebar } from "semantic-ui-react";
+import React from "react";
+import { Menu } from "semantic-ui-react";
 import { Link } from "gatsby";
 import "./LinkList.css";
 
-export function LinkList({ data, menuOpen, closeMenu, currentPath }) {
-  const [open, setOpen] = useState({});
-
+export function LinkList({ data, currentPath }) {
   const links = data.allMarkdownRemark.edges.map(edge => {
     return {
       name: edge.node.frontmatter.linkname,
@@ -21,57 +19,27 @@ export function LinkList({ data, menuOpen, closeMenu, currentPath }) {
     }, {})
   );
   return (
-    <Sidebar
-      as={Menu}
-      animation="overlay"
-      icon="labeled"
-      inverted
-      vertical
-      visible={menuOpen}
-      width="thin"
-    >
-      <Menu.Item className="centered">
-        <Button secondary onClick={closeMenu}>
-          Close [X]
-        </Button>
-      </Menu.Item>
+    <Menu vertical>
       {multilevelLinks.map(links => {
         return (
-          <>
-            <Menu.Item
-              as="a"
-              onClick={() => {
-                setOpen(open => ({ ...open, [links[0]]: !open[links[0]] }));
-              }}
-            >
-              {links[0]}{" "}
-              <span
-                dangerouslySetInnerHTML={{
-                  __html: open[links[0]] ? "&#11167" : "&#11166"
-                }}
-              />
-            </Menu.Item>
-            {open[links[0]] &&
-              links[1].map(link => {
+          <Menu.Item>
+            <Menu.Header>{links[0]}</Menu.Header>
+            <Menu.Menu>
+              {links[1].map(link => {
                 return (
-                  <Menu.Item
-                    as={currentPath === link.path ? "span" : Link}
-                    to={link.path}
-                  >
-                    <span
-                      style={{
-                        fontWeight:
-                          currentPath === link.path ? "bold" : "normal"
-                      }}
-                    >
-                      {link.name}
-                    </span>
+                  <Menu.Item key={link.path}>
+                    {currentPath !== link.path ? (
+                      <Link to={link.path}>{link.name}</Link>
+                    ) : (
+                      link.name
+                    )}
                   </Menu.Item>
                 );
               })}
-          </>
+            </Menu.Menu>
+          </Menu.Item>
         );
       })}
-    </Sidebar>
+    </Menu>
   );
 }
