@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import { parser } from "../utils/parser";
 import { SnippetAnimator } from "../components/SnippetAnimator";
@@ -7,6 +7,7 @@ import "../styles/index.css";
 import Helmet from "react-helmet";
 
 export default function Template({ data }) {
+  const [showMenu, setShowMenu] = useState(false);
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
   const nextIndex =
@@ -19,6 +20,14 @@ export default function Template({ data }) {
     <div className="layout">
       <header>
         <h1>TypeOfNaN Tutorials</h1>
+        <button
+          className="navicon small-only"
+          onClick={() => {
+            setShowMenu(!showMenu);
+          }}
+        >
+          Menu
+        </button>
       </header>
       <Helmet>
         <meta charSet="utf-8" />
@@ -30,7 +39,7 @@ export default function Template({ data }) {
           title={`How ${frontmatter.title} works`}
           nextPage={nextPage}
         />
-        <div className="layout-nav">
+        <div className={`layout-nav ${showMenu ? "" : "collapsed"}`}>
           <LinkList data={data} />
         </div>
       </div>

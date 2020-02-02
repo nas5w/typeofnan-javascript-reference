@@ -22,6 +22,10 @@ header {
   padding: 0 20px;
 }
 
+header h1 {
+  float: left;
+}
+
 .CodeMirror {
   font-size: 14px;
   line-height: 20px;
@@ -32,7 +36,21 @@ header {
   padding: 20px;
 }
 
+.collapsed {
+  display: none;
+}
+
+.small-only {
+  display: block;
+}
+
 @media (min-width: 1000px) {
+  .small-only {
+    display: none;
+  }
+  .collapsed {
+    display: block;
+  }
   .layout-body {
     flex-direction: row;
     flex: 1;
@@ -51,7 +69,39 @@ header {
     padding: 10px;
     border-radius: 10px;
   }
-  .layout-code {
-    /* background-color: #2e3440; */
-  }
+}
+
+.navicon {
+  /* This is all that's required */
+  position: relative;
+  /* This just makes it look like a button for the demo */
+  font-family: sans-serif;
+  color: white;
+  text-decoration: none;
+  background: black;
+  border-radius: 4px;
+  padding: 0.5em 0.75em 0.5em 2em;
+  float: right;
+  margin-top: 22px;
+  border: none;
+}
+
+.navicon:hover {
+  border: none;
+  color: #fefefe;
+}
+
+.navicon:before {
+  position: absolute;
+  top: 50%;
+  left: 0.75em;
+  width: 0.8em;
+  height: 0.8em;
+  margin-top: -0.4em;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  /* white navicon */
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHMAAABkCAMAAACCTv/3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////5ubmueBsSwAAAAJ0Uk5T/wDltzBKAAAAPklEQVR42uzYQQ0AAAgDseHfNC4IyVoD912WAACUm3uampqampqamq+aAAD+IVtTU1NTU1NT0z8EAFBsBRgAX+kR+Qam138AAAAASUVORK5CYII=);
 }

@@ -1,0 +1,38 @@
+.sidebar-list {
+  list-style-type: none;
+  padding: 0px 20px;
+}
+
+.sidebar-list a {
+  color: #4c566a;
+}
+
+.sidebar-list a:hover {
+  color: #2e3440;
+  text-decoration: none;
+}
+
+.sidebar-list li {
+  border-bottom: 1px dashed #d8dee9;
+}
+.sidebar-list li ul {
+  list-style-type: none;
+  padding: 0px 10px;
+}
+
+.sidebar-list li ul li {
+  padding: 7px 0;
+  border: 0;
+}
+
+.sidebar-list button {
+  border: 0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  padding: 10px 0;
+}
+
+.sidebar-list button:hover {
+  border: 0;
+}
