@@ -50,21 +50,25 @@ export const SnippetAnimator = ({ snippets, title, nextPage }) => {
                 {i === currentInstruction &&
                   !typing &&
                   snippets[currentIndex + 1] && (
-                    <button
-                      onClick={() => {
-                        setContentDisplay("");
-                        setCurrentIndex(currentIndex + 1);
-                      }}
-                    >
-                      Show me &raquo;
-                    </button>
+                    <>
+                      <br />
+                      <button
+                        onClick={() => {
+                          setContentDisplay("");
+                          setCurrentIndex(currentIndex + 1);
+                        }}
+                      >
+                        Show me &raquo;
+                      </button>
+                    </>
                   )}
               </li>
             ))}
         </ol>
         {nextPage && !snippets[currentIndex + 1] && (
           <>
-            <h3>Next</h3>
+            <hr />
+            <h3>Next up:</h3>
             <Link to={nextPage.node.frontmatter.path}>
               {nextPage.node.frontmatter.title} &raquo;
             </Link>

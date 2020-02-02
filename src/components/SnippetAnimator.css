@@ -16,9 +16,10 @@ button {
   border: none;
   border-bottom: 2px dashed #3b4252;
   padding: 0;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   color: #3b4252;
+  margin-top: 20px;
 }
 
 button:hover {
