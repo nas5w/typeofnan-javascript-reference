@@ -46,8 +46,10 @@ header {
   .CodeMirror {
     font-size: 20px;
     line-height: 26px;
+    padding: 10px;
+    border-radius: 10px;
   }
   .layout-code {
-    background-color: #2e3440;
+    /* background-color: #2e3440; */
   }
 }
