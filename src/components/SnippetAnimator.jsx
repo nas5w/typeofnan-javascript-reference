@@ -34,7 +34,7 @@ export const SnippetAnimator = ({
       setTyping(true);
       setTimeout(() => {
         setContentDisplay(content.substring(0, contentDisplay.length + 1));
-      }, Math.random() * 40 + 70);
+      }, Math.random() * 40 + 30);
     } else {
       if (typing) {
         setContentDisplay(contentDisplay => contentDisplay + (after || ""));
@@ -53,7 +53,7 @@ export const SnippetAnimator = ({
         <p style={{ margin: "20px 0", fontSize: "18px", color: "#555" }}>
           {description}
         </p>
-        <p style={{ margin: "20px 0", fontSize: "18px", color: "#555" }}>
+        <p style={{ margin: "20px 0", fontSize: "18px", color: "#555  " }}>
           Here's a simple example of how we can use {title}:
         </p>
         <ol>
@@ -77,16 +77,7 @@ export const SnippetAnimator = ({
         >
           Show me &raquo;
         </button>
-        {!snippets[currentIndex + 1] && (
-          <p>
-            This is only an example of the power of {title}. To dive deeper,
-            check out{" "}
-            <a href={doclink} target="_blank" rel="noopener noreferrer">
-              these docs
-            </a>
-            !
-          </p>
-        )}
+
         {nextPage && !snippets[currentIndex + 1] && (
           <>
             <hr />
@@ -111,6 +102,14 @@ export const SnippetAnimator = ({
             onChange={() => null}
           />
         )}
+        <p>
+          This is only one example of the power of {title}. To dive deeper,
+          check out{" "}
+          <a href={doclink} target="_blank" rel="noopener noreferrer">
+            these docs
+          </a>
+          !
+        </p>
       </div>
     </>
   );
