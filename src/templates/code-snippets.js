@@ -20,7 +20,7 @@ export default function Template({ data }) {
   return (
     <div className="layout">
       <header>
-        <h1 className="large-only">TypeOfNaN JavaScript Quizzes</h1>
+        <h1 className="large-only">TypeOfNaN JavaScript Reference</h1>
         <h1
           className="small-only"
           dangerouslySetInnerHTML={{ __html: "< t />" }}
