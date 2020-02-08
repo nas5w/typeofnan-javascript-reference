@@ -21,6 +21,12 @@ module.exports = {
       }
     },
     `gatsby-transformer-remark`,
-    `gatsby-plugin-react-helmet`
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-106974426-7"
+      }
+    }
   ]
 };
