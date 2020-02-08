@@ -46,10 +46,18 @@ header h1 {
   display: block;
 }
 
+.large-only {
+  display: none;
+}
+
 @media (min-width: 1000px) {
   .small-only {
     display: none;
   }
+  .large-only {
+    display: block;
+  }
+
   .collapsed {
     display: block;
   }
