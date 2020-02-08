@@ -5,6 +5,9 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://reference.typeofnan.dev/sitemap.xml`
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-google-fonts`,
@@ -20,6 +23,7 @@ module.exports = {
         path: `${__dirname}/src/code-snippets`
       }
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
     {
