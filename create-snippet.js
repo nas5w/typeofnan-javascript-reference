@@ -21,7 +21,7 @@ try {
   // Create the file with our template
   fs.mkdir(dir, { recursive: true }, err => {
     if (err) throw err;
-    fs.createReadStream("./src/md-templates/code-snippet.md").pipe(
+    fs.createReadStream("./md-templates/code-snippet.md").pipe(
       fs.createWriteStream(path)
     );
   });
