@@ -1,7 +1,7 @@
 ---
 title: "the Array.map method"
 linkname: "Array.map()"
-path: "/array-map"
+path: "/array/map"
 category: "Array"
 description: The Array map method returns a new array by transforming each element of the input array by the function you provide.
 ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map

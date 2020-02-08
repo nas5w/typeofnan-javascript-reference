@@ -1,7 +1,7 @@
 ---
 title: "the Array.from method"
 linkname: "Array.from()"
-path: "/array-from"
+path: "/array/from"
 category: "Array"
 description: "The Array.from method creates a new array from an array-like or iterable object. Array.from creates a _shallow_ copy."
 ref: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from"

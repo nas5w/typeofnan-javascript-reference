@@ -1,7 +1,7 @@
 ---
 title: "the Array.isArray method"
 linkname: "Array.isArray()"
-path: "/array-isarray"
+path: "/array/is-array"
 category: "Array"
 description: "The Array.isArray method checks if the argument passed to it is an Array. If it is, isArray returns true. If not, it returns false."
 ref: ""
