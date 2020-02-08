@@ -19,7 +19,7 @@ export default function Template({ data }) {
   return (
     <div className="layout">
       <header>
-        <h1>TypeOfNaN Tutorials</h1>
+        <h1>TypeOfNaN JavaScript Reference</h1>
         <button
           className="navicon small-only"
           onClick={() => {
@@ -31,7 +31,9 @@ export default function Template({ data }) {
       </header>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>How {frontmatter.title} works | TypeOfNaN Tutorials</title>
+        <title>
+          How {frontmatter.title} works | TypeOfNaN JavaScript Reference
+        </title>
       </Helmet>
       <div className="layout-body">
         <SnippetAnimator
