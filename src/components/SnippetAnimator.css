@@ -35,3 +35,7 @@ code {
   border-radius: 3px;
   font-size: 15px;
 }
+
+.cm-comment {
+  color: #9f966d !important;
+}
