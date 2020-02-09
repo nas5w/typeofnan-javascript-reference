@@ -3,7 +3,7 @@ title: "the Array.some method"
 linkname: "Array.some()"
 path: "/array/some"
 category: "Array"
-description: The Array some method iterates through your array and tests each element with the provided function. If the element passes, the next element is tested. If all elements pass, the method returns true. As soon as one element fails the test, the method returns false.
+description: The Array some method iterates through your array and tests each element with the provided function. If the element fails the test, the next element is tested. If all elements fail, the method returns false. As soon as one element passes the test, the method returns true.
 ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 ---
 
